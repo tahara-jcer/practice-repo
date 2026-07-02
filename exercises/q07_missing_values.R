@@ -7,9 +7,9 @@ library(nycflights13)
 # BUG: NAが混じると結果がNAになる
 summary_tbl <- flights |>
   summarize(
-    mean = mean(arr_delay),
-    median = median(arr_delay),
-    p90 = quantile(arr_delay, 0.9)
+    mean = mean(arr_delay,na.rm = TRUE),
+    median = median(arr_delay,na.rm = TRUE),
+    p90 = quantile(arr_delay, 0.9, na.rm = TRUE)
   )
 
 # TODO:
